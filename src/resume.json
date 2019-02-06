@@ -26,6 +26,11 @@
 					"url": "https://mailchi.mp/wwu/western-today-for-monday-april-24-675061",
 					"summary": "Western Way - September 29, 2017"
 				},
+				{	
+					"id" : "bitbucket",
+					"url" : "https://bitbucket.org/wwulibraries/",
+					"summary" : "Bitbucket repositories for this position"
+				},
 				{
 					"id": 2,
 					"url": null,
@@ -49,7 +54,7 @@
 				{ 
 					"id": 3,
 					"url": null,
-					"summary": "Planning to setup an automated testing environment in the near future "
+					"summary": "Planning to setup an automated testing environment in the near future; currently learning and experimenting with Nightmare JS and Jest  "
 				},
 				{ 
 					"id": 4,
