@@ -19,7 +19,7 @@ export class Skills extends Component {
         </div>
         <div className="column">
           <Sparklines data={skill.usage} svgHeight={15} svgWidth={100} margin={5}>
-            <SparklinesCurve color="blue" />
+            <SparklinesCurve color="#596979" />
           </Sparklines>
         </div>
       </div>
