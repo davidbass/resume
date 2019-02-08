@@ -4,7 +4,7 @@
 	"email" : "david at david bass dot com",
 	"linkedIn" : "http://www.linkedin.com/in/davidbass",
 	"title" : "Web Developer resume - Bellingham, Washington",
-	"overview" : "Innovative web developer based in Bellingham, WA with a Master's degree in Information Systems.  Interests include AI, computer vision, automation, learning, design and problem solving.",
+	"overview" : "Web / software developer based in Bellingham, Washington with a Master's degree in Information Systems.  Interests include AI, computer vision, automation, learning, design and problem solving.",
 	"experience" : [
 		{
 			"id": 0,
@@ -36,8 +36,8 @@
 					"url": null,
 					"summary": "Developing and designing an open-source, cross-platform desktop application known as the Islandora Batch Uploader (IBU)",
 					"details": [
-						"https://bitbucket.org/wwulibraries/islandora-batch-uploader/",
-						"Designed to make it easy to describe and upload batches of images and video to Western's digital asset management system (MABEL).",
+						"<a title='link to repository' target='bbibu' href='https://bitbucket.org/wwulibraries/islandora-batch-uploader/'>Bitbucket repository</a>",
+						"Designed to make it easy to describe and upload batches of images and video to Western's digital asset management system (MABEL)",
 						"Created with Electron, Node, VueJS, ES6 and many other Node modules",
 						"Uses Clarifai and Microsoft Cognitive Services machine learning APIs for automated image / video analysis",
 						"Generates SSH private / public keys for authentication",
@@ -45,10 +45,8 @@
 						"Using child processes to for time-consuming tasks such as video processing, pHash calculations and Ajax calls",
 						"Uses pHash to create a visual fingerprint/signature of each image, and then compares their differences to cluster similar images and to find scene changes for video",
 						"Harvests EXIF metadata when available, and uses date created to find events that occurred on the same day in the university calendar to suggest photo titles",
-						"Presented IBU at the 2018 Islandora Camp San Diego",
-						"https://islandora.ca/camps/ca2018/schedule",
-						"https://docs.google.com/presentation/d/1-5uXw8LFsyWg6B-mRf5oibuLMu-xk6tUkq_LWfwPmdI/edit?usp=sharing",
-						"https://islandora.ca/content/looking-back-islandora-campca"
+						"Presented IBU at the 2018 Islandora Camp San Diego - <a target='sdsucamp' title='link to schedule' href='https://islandora.ca/camps/ca2018/schedule'>schedule</a> | <a target='slides' title='link to slides' href='https://docs.google.com/presentation/d/1-5uXw8LFsyWg6B-mRf5oibuLMu-xk6tUkq_LWfwPmdI/edit?usp=sharing'>presentation slides</a> | <a target='sdsufeedback' title='link to review of presentation' href='https://islandora.ca/content/looking-back-islandora-campca'>feedback</a>",
+						"Planning to experiment with LSTM (Long short-term memory) to automatically generate descriptions based on keywords and other metadata"
 					]  	
 				},
 				{ 
@@ -57,14 +55,24 @@
 					"summary": "Planning to setup an automated testing environment in the near future; currently learning and experimenting with Nightmare JS and Jest  "
 				},
 				{ 
-					"id": 4,
+					"id": "okr",
 					"url": null,
-					"summary": "Created a JSON to XML (MODS) preview tool using Node & Express - https://bitbucket.org/wwulibraries/json2xmlconverter/"
+					"summary": "Working to introduce Objectives and Key Results (OKRs) to the organization"
+				},
+				{
+					"id": "primoapicache",
+					"url": null,
+					"summary": "Developing a Node / Express middleware application + API that will make it easy for departments on campus to embed a list of their catalog assets on their own websites.  It caches search results obtained from the Primo API resulting in a very fast loading time.  Code will be made public upon launch."
+				},
+				{ 
+					"id": 4,
+					"url": "https://bitbucket.org/wwulibraries/json2xmlconverter/",
+					"summary": "Created a JSON to XML (MODS) preview tool using Node & Express"
 				},
 				{ 
 					"id": 5,
-					"url": null,
-					"summary": "Created a Drupal 7 module for Islandora that repeats the search within PDF.js - https://bitbucket.org/wwulibraries/wwu_islandora_pdfautosearch/src"
+					"url": "https://bitbucket.org/wwulibraries/wwu_islandora_pdfautosearch/",
+					"summary": "Created a Drupal 7 module for Islandora that repeats the search within PDF.js"
 				}, 
 				{ 
 					"id": 6,
@@ -83,13 +91,12 @@
 				},
 				{ 
 					"id": 9,
-					"url": null,
+					"url": "https://bitbucket.org/wwulibraries/getting-started/",
 					"summary": "Developed a Drupal 7 module known as Getting Started",
 					"details": [
 						"Designed to help students with writing assignments",
 						"Automates several facets of in-person workshops, including finding related keywords (via the Primo and Alchemy/Watson APIs)",
-						"And automatically generating all possible combinations of those words and generating Ajax queries in Primo (OneSearch); something that would take a long time to do by hand",
-						"https://bitbucket.org/wwulibraries/getting-started/"
+						"And automatically generating all possible combinations of those words and generating Ajax queries in Primo (OneSearch)"
 					]
 				},
 				{ 
@@ -97,10 +104,9 @@
 					"url": null,
 					"summary": "Designed and developed interface enhancements for Primo (aka 'OneSearch'), our library catalog / search engine",
 					"details": [
-						"https://onesearch.library.wwu.edu",
-						"https://bitbucket.org/wwulibraries/primo-by-exlibris-customizations",
+						"<a target='onesearch' title='link to onesearch' href='https://onesearch.library.wwu.edu'>onesearch.library.wwu.edu</a> - <a href='https://bitbucket.org/wwulibraries/primo-by-exlibris-customizations'>code</a>",
 						"including API integration with Alma and other systems and a custom permalink generator.",
-						"Screenshots: before: https://d.pr/i/kMpe3E - after: https://d.pr/i/RssKjM "
+						"Screenshots: <a title='link to before screenshot' target='before' href='https://d.pr/i/kMpe3E'>before</a>  - <a title='link to after screenshot' target='after' href='https://d.pr/i/RssKjM'>after</a> "
 					]
 				},
 				{ 
@@ -403,7 +409,7 @@
 		},
 		{
 			"name": "HTML 5",
-			"confidence": 25,
+			"confidence": 95,
 			"usage": [
 				5,7,9,9,10,10,10,10,10
 			]

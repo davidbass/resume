@@ -11,7 +11,7 @@ export class Highlight extends Component {
           { highlight.details && 
               highlight.details.map((detail, index) => (
                 <li key={ index }>
-                  { detail }
+                  <span dangerouslySetInnerHTML={{ __html: detail }} />
                 </li>
               ))
           } 
