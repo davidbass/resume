@@ -13,7 +13,7 @@
 			"url": "https://library.wwu.edu",
 			"summary": "",
 			"location" : "Bellingham, WA",
-			"startDate": "January 2013",
+			"startDate": "Jan 2013",
 			"endDate": "present",
 			"highlights": [
 				{
@@ -136,8 +136,8 @@
 			"summary": "",
 			"organization": "PIER Systems",
 			"location" : "Bellingham, WA",
-			"startDate": "June 2011",
-			"endDate": "December 2012",
+			"startDate": "Jun 2011",
+			"endDate": "Dec 2012",
 			"highlights": [
 				{
 					"id": 0,
@@ -160,8 +160,8 @@
 			"summary": "",
 			"organization": "Platypus Productions",
 			"location" : "Darrington, WA",
-			"startDate": "November 2010",
-			"endDate": "June 2011",
+			"startDate": "Nov 2010",
+			"endDate": "Jun 2011",
 			"highlights": [
 				{
 					"id": 0,
@@ -483,6 +483,13 @@
 			"confidence": 25,
 			"usage": [
 				0,0,3,0,0,0,0,0,0
+			]
+		},
+		{
+			"name": "Nginx",
+			"confidence": 20,
+			"usage": [
+				0,0,0,0,0,1,0,0,2
 			]
 		}
 	]
