@@ -8,7 +8,7 @@
 	"experience" : [
 		{
 			"id": 0,
-			"title": "Sr. Developer for Digital Initiatives",
+			"title": "Senior Developer",
 			"organization": "WWU Libraries",
 			"url": "https://library.wwu.edu",
 			"summary": "",
@@ -16,6 +16,11 @@
 			"startDate": "Jan 2013",
 			"endDate": "present",
 			"highlights": [
+				{
+					"id": "fulltitle",
+					"url": null,
+					"summary": "Full title: Senior Developer for Digital Initiatives"
+				},
 				{
 					"id": 0,
 					"url": "https://president.wwu.edu/professional-staff-award-excellence",
