@@ -12,12 +12,12 @@ export class Experience extends Component {
       <div className="card" key={job.id}>
         <h3 className="title"> 
           { job.title } @ <a target='_blank' rel='noopener noreferrer' href={job.url}>{ job.organization }</a>
-          <span>{ job.startDate } - { job.endDate }</span>
         </h3>
         <div className="location">
           <FontAwesomeIcon icon="map-marker-alt" color="#aaa" title="map icon" /> &nbsp;{ job.location }
         </div>
-        <ul>
+        <ul>          
+          <li>{ job.startDate } - { job.endDate }</li>
           <Highlight highlights ={ job.highlights } />
         </ul>
       </div>

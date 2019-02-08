@@ -128,7 +128,7 @@ h3.title {
 }
 
 h3.title div {
-	display: inline;
+	display: block;
 	float: right;
 	font-weight: normal;
 	font-size: 90%;
@@ -170,11 +170,12 @@ h4.title {
 	border-bottom-left-radius: 28px;
 	float: right;
 	position: relative;
-	right: 0px;
+	right: 4px;
+	white-space: nowrap;
 	/* background: pink; */
 	width: 20%;
 	text-align: right;
-	margin-right: -1em;
+	margin-right: 0px;
 	margin-top: 9px;
 	/* line-height: 26%; */
 	/* color: #666; */
