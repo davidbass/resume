@@ -9,10 +9,31 @@ function getRemainder(numerator) {
 }
 
 export class Skills extends Component {  
+
+  constructor(props) {
+    super(props);
+    this.toggleHighlight = this.toggleHighlight.bind(this);    
+    this.state = {
+      searchFor: ''
+    }
+  }
+  
+  toggleHighlight(text) {
+    // console.log("toggleHighlight " + text);
+    this.setState({ searchFor: text });
+    this.props.selectedTextFromComponent(text);
+  }
+
   render() {
     return this.props.skills.map((skill, index) => (
       <div className='row title' key={ index }>
-        <div className="column">{ skill.name }</div>
+        <div 
+          className="column" 
+          onMouseOver={() => this.toggleHighlight(skill.name)} 
+          //onMouseOut={() => this.toggleHighlight('')} 
+          >
+          { skill.name }
+        </div>
         {/* <FontAwesomeIcon icon="square" />  */}
         <div className="column">
           <div className="nowrap"><img alt="numerator" border="1" src={ numeratorImg } width={ skill.confidence/2 } height="7" /><img alt="denominator" border="1" src={ denominatorImg } width={ getRemainder(skill.confidence) } height="7" /></div>

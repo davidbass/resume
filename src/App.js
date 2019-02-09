@@ -6,6 +6,23 @@ import resumeData from './resume.json';
 import './App.css';
 
 class App extends Component {
+
+  constructor() {
+    super();
+    this.state = {
+      searchFor: ''
+    }
+  }
+ 
+  myCallback = (dataFromChild) => {
+    // console.log('myCallback...', dataFromChild);
+    this.setState({ searchFor: dataFromChild });
+    this.setState((searchFor) => ({
+      searchFor: searchFor
+    }));
+    // console.log('this.state.searchFor', this.state.searchFor);
+  }
+
   render() {
     // console.log(resumeData);
     return (
@@ -19,7 +36,7 @@ class App extends Component {
         <div className="row">
           <div className="double-column">
             <h2 className="section">Experience</h2>
-            <Experience experience={ resumeData.experience } />
+            <Experience experience={ resumeData.experience } highlightThis={ this.state.searchFor } />
           </div>
           <div className="column">
             <h2 className="section">Skills</h2>
@@ -29,7 +46,7 @@ class App extends Component {
                 <div className='column'>Confidence</div>
                 <div className='column'>Career Usage  </div>
               </div>
-              <Skills skills={resumeData.skills} />            
+              <Skills skills={resumeData.skills} selectedTextFromComponent={this.myCallback} />            
             </div>
             <div className="">
               <h2 className="section">Education</h2>

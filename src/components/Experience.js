@@ -7,7 +7,29 @@ import { faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons'
 library.add(faMapMarkerAlt)
 
 export class Experience extends Component {
+
+
+  componentDidUpdate() {
+    // console.log('did update', this.props.highlightThis);
+    // let vm = this;
+    // vm.setState({
+    //   searchFor: this.props.highlightThis
+    // });
+
+    // console.log('props', this.props.highlights);
+    // let filteredSummary = this.props.highlights.reduce((highlight) => (
+    //   let searchFor = this.state.searchFor;
+    //   let searchIn = highlight.summary;
+    //   let filteredSummary = (searchFor, searchIn) => searchIn.replace(new RegExp(searchFor, 'gi'), str => `<strong>${str}</strong>`);
+    //   vm.setState({
+    //     filteredSummary: filteredSummary
+    //   });  
+    // ))
+
+  }
+
   render() {
+    // console.log('this.props.highlightThis', this.props.highlightThis);
     return this.props.experience.map((job, index) => (
       <div className="card" key={job.id}>
         <h3 className="title"> 
@@ -18,7 +40,7 @@ export class Experience extends Component {
           <FontAwesomeIcon icon="map-marker-alt" color="#aaa" title="map icon" /> &nbsp;{ job.location }
         </div>
         <ul>          
-          <Highlight highlights ={ job.highlights } />
+          <Highlight highlights={ job.highlights }  highlightThis={ this.props.highlightThis } />
         </ul>
       </div>
     ));    
