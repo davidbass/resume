@@ -204,6 +204,9 @@ a {
     opacity: 1;
 }
 
+.highlightbg {
+	background: yellow;
+}
 
 a.noline {
    text-decoration: none;
