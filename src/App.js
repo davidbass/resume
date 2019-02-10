@@ -10,17 +10,13 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      searchFor: ''
+      searchFor: []
     }
   }
  
   myCallback = (dataFromChild) => {
-    // console.log('myCallback...', dataFromChild);
+    console.log('myCallback - dataFromChild', dataFromChild);
     this.setState({ searchFor: dataFromChild });
-    this.setState((searchFor) => ({
-      searchFor: searchFor
-    }));
-    // console.log('this.state.searchFor', this.state.searchFor);
   }
 
   render() {

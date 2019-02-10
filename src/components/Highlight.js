@@ -18,12 +18,12 @@ export class Highlight extends Component {
     if (searchFor) {
       if (text.includes(searchFor)) {
         thisClassName = 'highlightbg';
-        console.log('found "' + searchFor + '" in "' + text + '"');
+        // console.log('found "' + searchFor + '" in "' + text + '"');
       }
       // Split on searchFor term and include term into parts, ignore case
       const parts = text.split(' ');    // convert the string into an array
       return <span> { parts.map((part, i) => 
-          <span key={i} className={ thisClassName } style={part.toLowerCase() === searchFor.toLowerCase() ? { background: 'orange' } : { } }>
+          <span key={i} className={ thisClassName } style={part.toLowerCase() === searchFor.toLowerCase() ? { fontWeight: 'bold' } : { } }>
             { part + ' ' }
           </span>)
       } </span>;
