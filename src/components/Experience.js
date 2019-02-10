@@ -16,7 +16,7 @@ export class Experience extends Component {
   }
 
   componentDidUpdate() {
-    console.log('experience - did update', this.props.highlightThis);
+    // console.log('experience - did update', this.props.highlightThis);
     // this.setState({
     //   searchFor: this.props.highlightThis
     // });

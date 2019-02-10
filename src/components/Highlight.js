@@ -11,33 +11,37 @@ export class Highlight extends Component {
   }
 
   componentDidUpdate() {
-    console.log('highlight - did update', this.props.highlightThis);
+    // console.log('highlight - did update', this.props.highlightThis);
   }
 
   getHighlightedText(text, searchFor) {
-    
     // thanks to https://stackoverflow.com/a/43235785 
-    // Split text on searchFor term, include term itself into parts, ignore case
     // var parts = text.split(new RegExp(`(${searchFor})`, 'gi'));
     let thisClassName = '';
+    let newText = text;
     if (searchFor.length > 0) {
-      // console.log('highlight/getHighlightedText', searchFor, text);
+      // console.log('getmatches', searchFor, text.substring(0,30));
+      // TODO: if a skill is checked, make #skills fixed, so it is always visible as the user scrolls up and down;
 
       searchFor.forEach(function(element) {
+        const parts = text.split(/[^A-Za-z]/);    // convert the string into an array - thanks https://stackoverflow.com/a/9842524
+
         if (text.includes(element)) {
           thisClassName = 'highlightbg';
-          console.log('found "' + element + '" in "' + text + '"');
-        }
-        // Split on searchFor term and include term into parts, ignore case
-        const parts = text.split(' ');    // convert the string into an array
-        console.log('parts', parts);
-        return <span> { parts.map((part, i) => 
+          console.log('found "' + element + '" in "' + text.substring(0,30) + '..."');
+          // Split on searchFor term and include term into parts, ignore case
+          console.log('parts', parts);
+          newText = <span> { parts.map((part, i) => 
             <span key={i} className={ thisClassName } style={part.toLowerCase() === element.toLowerCase() ? { fontWeight: 'bold' } : { } }>
               { part + ' ' }
             </span>)
-        } </span>;
+          } </span>;
+        } else {
+          // console.log('did NOT find "' + element + '" in "' + text.substring(0,30) + '..."');
+        }
       });
     }
+    return newText;
   }
 
   render() {

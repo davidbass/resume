@@ -34,9 +34,9 @@ class App extends Component {
             <h2 className="section">Experience</h2>
             <Experience experience={ resumeData.experience } highlightThis={ this.state.searchFor } />
           </div>
-          <div className="column">
+          <div className="column" id="skills">
             <h2 className="section">Skills</h2>
-            <div className="card" id="skills">
+            <div className="card">
               <div className="row gradient">
                 <div className='column'> Skill</div>
                 <div className='column'>Confidence</div>
