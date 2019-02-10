@@ -8,11 +8,16 @@ library.add(faMapMarkerAlt)
 
 export class Experience extends Component {
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      searchFor: []
+    }
+  }
 
   componentDidUpdate() {
-    // console.log('did update', this.props.highlightThis);
-    // let vm = this;
-    // vm.setState({
+    console.log('experience - did update', this.props.highlightThis);
+    // this.setState({
     //   searchFor: this.props.highlightThis
     // });
 
@@ -29,7 +34,7 @@ export class Experience extends Component {
   }
 
   render() {
-    // console.log('this.props.highlightThis', this.props.highlightThis);
+    console.log('this.props.highlightThis', this.props.highlightThis);
     return this.props.experience.map((job, index) => (
       <div className="card" key={job.id}>
         <h3 className="title"> 
@@ -40,7 +45,7 @@ export class Experience extends Component {
           <FontAwesomeIcon icon="map-marker-alt" color="#aaa" title="map icon" /> &nbsp;{ job.location }
         </div>
         <ul>          
-          <Highlight highlights={ job.highlights }  highlightThis={ this.props.highlightThis } />
+          <Highlight highlights={ job.highlights } highlightThis={ this.props.highlightThis } />
         </ul>
       </div>
     ));    
