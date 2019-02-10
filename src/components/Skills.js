@@ -24,6 +24,18 @@ export class Skills extends Component {
     }
   }
 
+  // TODO: assign a unique background color to each checked skill, and pass it to Experience.js for matches
+    // function getRandomColor() {
+    //   var letters = '3456789ABCDEF';
+    //   var color = '#';
+    //   for (var i = 0; i < 6; i++) {
+    //     color += letters[Math.floor(Math.random() * 16)];
+    //   }
+    //   return color;
+    // }
+    // let bgColor = getRandomColor();
+
+
   toggleHighlight(event) {
     // console.log(event);
     const isChecked = event.target.checked;
