@@ -13,11 +13,6 @@ export class Highlight extends Component {
   }
 
   componentDidMount() {
-    // save all of the highlights to state
-    // console.log('highligh - didMount');
-    // let filteredSummaries = [...this.state.filteredSummaries];   //creating the copy
-    // console.log('filteredSummaries1', filteredSummaries)
-    // console.log('this.props.highlightThis', this.props.highlightThis);
     let filteredSummaries = this.props.highlights.map((highlight, highlightIndex) => {
       let newText = this.getHighlightedText(highlight.summary, this.props.highlightThis);
       // console.log(newText);      
@@ -28,9 +23,6 @@ export class Highlight extends Component {
       unFilteredSummaries: filteredSummaries,
       filteredSummaries: filteredSummaries
     })
-
-    // console.log('filteredSummaries', filteredSummaries)
-    // this.setState({filteredSummaries});
 
   }
 
@@ -47,7 +39,13 @@ export class Highlight extends Component {
           if (newText !== this.state.unFilteredSummaries[highlightIndex]) {
             console.log('newText is new', 'this.props', this.props, 'prevProps', prevProps);    
           }
-          console.log('newText', newText);
+          // console.log('newText', newText);
+          if (newText.isArray) {
+            console.log('newText is an array ------------------------------');
+            let newText = newText.join('');
+            console.log('newText as string', newText);
+          }
+
           return newText;
         })
         console.log('filteredSummaries @ 51', filteredSummaries);
@@ -64,41 +62,22 @@ export class Highlight extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    console.log('highlight - didUpdate', this.props, prevProps);
-    // let currentText = this.state.filteredSummaries;
-    // console.log('currentText @ 70', currentText);
-    // let newText = currentText.map(string => {
-    //   return string.replace(/(<([^>]+)>)/ig,"")
-    // });
-    // this.setState({ filteredSummaries: newText });
-
+    // console.log('componentDidUpdate', this.props, prevProps);
   }
 
   getHighlightedText(text, searchFor) {
 
     let newText = text;
     if (searchFor.length > 0) {
-      // console.log('text = ', text);
-
       let searchForAsString = searchFor.join('|');
       const stringArray = newText.split(/([^A-Za-z]|$)/g); // keep the delimiter; we don't want to remove non-alphanumeric characters from the display; just from the match
       let elements = stringArray.map((string, index) =>
         new RegExp(searchForAsString, 'gi').test(string) ? <b key={ index } className='highlightbg'>{ string }</b> : string
       )
       return elements;
-      // let newText = text.replace(new RegExp(searchForAsString, 'gi'), function (x, i) {
-      //    return ( <div><span key=" + i + " style="background:'yellow', font-weight:'bold'" dangerouslySetInnerHTML={{__html: x }}></span></div> )
-      //   });
-      // return newText;
-      
-      /*
-      let newText = searchFor.map(searchForWord => {
-        console.log('getHighlightedText', searchForWord, text.substring(0,100));
-        return formatLabel(text, searchForWord);
-      });
-      */
-
     }
+
+    console.log('---------------');
     return newText;
   }
 

@@ -67,7 +67,7 @@
 				{
 					"id": "primoapicache",
 					"url": null,
-					"summary": "Developing a Node / Express middleware application + API that will make it easy for departments on campus to embed a list of their catalog assets on their own websites.  It caches search results obtained from the Primo API resulting in a very fast loading time.  Code will be made public upon launch."
+					"summary": "Developing a Node / Express caching application + API that will make it easy for departments on campus to embed a list of their catalog assets on their own websites.  Code will be made public upon launch."
 				},
 				{ 
 					"id": 4,
