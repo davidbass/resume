@@ -7,6 +7,7 @@ export class Highlight extends Component {
     // this.getRandomColor = this.getRandomColor.bind(this);
     this.state = {
       searchFor: '',
+      unFilteredSummaries: [],
       filteredSummaries: []
     }
   }
@@ -24,6 +25,7 @@ export class Highlight extends Component {
     })
 
     this.setState({
+      unFilteredSummaries: filteredSummaries,
       filteredSummaries: filteredSummaries
     })
 
@@ -32,74 +34,70 @@ export class Highlight extends Component {
 
   }
 
-  componentDidUpdate(prevProps) {
-    console.log('highlight - didUpdate', this.props);
-    // console.log(this.props.highlightThis, prevProps.highlightThis);
-    // if (this.props.highlightThis !== prevProps.highlightThis) {
-    // console.log('this.props.highlightThis.length', this.props.highlightThis.length);
-    let filteredSummaries = [];
-    let numUpdates = 0;
-    if (this.props.highlightThis.length > 0) {
-      let filteredSummaries = this.state.filteredSummaries.map((highlight, highlightIndex) => {
-        let newText = this.getHighlightedText(highlight, this.props.highlightThis);
-        if (newText != prevProps.highlights[highlightIndex].summary) {
-          console.log('this.props', this.props, 'prevProps', prevProps);    
-        }
-        return newText;
-      })
-      console.log('filteredSummaries @ 50', filteredSummaries);
-      // filteredSummaries: [ ...this.state.filteredSummaries, filteredSummaries ]
+  componentWillReceiveProps(prevProps, nextProps) {
+    // console.log('componentWillReceiveProps', 'this.props.highlightThis', this.props.highlightThis, 'prevProps.highlightThis', prevProps.highlightThis);
+    if (this.props.highlightThis !== prevProps.highlightThis) {
+      // console.log('this.props.highlightThis.length', this.props.highlightThis.length, 'prevProps.highlightThis.length', prevProps.highlightThis.length);
+      let filteredSummaries = [];
+      let numUpdates = 0;
+      if (prevProps.highlightThis.length > 0) {
+        let filteredSummaries = this.state.unFilteredSummaries.map((highlight, highlightIndex) => {
+          // console.log('running getHighlightedText');
+          let newText = this.getHighlightedText(highlight, prevProps.highlightThis);
+          if (newText !== this.state.unFilteredSummaries[highlightIndex]) {
+            console.log('newText is new', 'this.props', this.props, 'prevProps', prevProps);    
+          }
+          console.log('newText', newText);
+          return newText;
+        })
+        console.log('filteredSummaries @ 51', filteredSummaries);
 
-      // https://stackoverflow.com/questions/39941734/how-can-i-insert-into-array-with-setstate-react-js/39943308
+        // https://stackoverflow.com/questions/39941734/how-can-i-insert-into-array-with-setstate-react-js/39943308
 
-      // return filteredSummaries;
+        this.setState({ filteredSummaries });
+        return filteredSummaries;
+      } else {
+        // there were no checked items, so let's reset it to the original / unfiltered values;
+        this.setState({ filteredSummaries: this.state.unFilteredSummaries });  
+      }
     }
+  }
 
-
-    // this.setState({ filteredSummaries });
+  componentDidUpdate(prevProps) {
+    console.log('highlight - didUpdate', this.props, prevProps);
+    // let currentText = this.state.filteredSummaries;
+    // console.log('currentText @ 70', currentText);
+    // let newText = currentText.map(string => {
+    //   return string.replace(/(<([^>]+)>)/ig,"")
+    // });
+    // this.setState({ filteredSummaries: newText });
 
   }
 
   getHighlightedText(text, searchFor) {
 
-    /**
-     * https://github.com/facebook/react/issues/3386#issuecomment-291152357
-     * Find and highlight relevant keywords within a block of text
-     * @param  {string} label - The text to parse
-     * @param  {string} value - The search keyword to highlight
-     * @return {object} A JSX object containing an array of alternating strings and JSX
-     */
-    // function formatLabel(label, value) {
-    //   if (!value) {
-    //     return label;
-    //   }
-    //   return (<span>
-    //     { label.split(value).reduce((prev, current, i) => {
-    //         if (!i) {
-    //           return [current];
-    //         }
-    //         let newValue = prev + "<b key=" + value + i + ">" + value + "</b>";
-
-    //         console.log('newValue', newValue);
-    //         return newValue;
-    //       }, [])
-    //     }
-    //   </span>);
-    // };   
-
     let newText = text;
-    // console.log('text = ', text);
     if (searchFor.length > 0) {
-      let searchForAsString = searchFor.join('|');
-      let newText = text.replace(new RegExp(searchForAsString, 'gi'), function (x, i) {
-         return " JJJJJJJJ <span key=" + i + " style=\"background:'yellow', font-weight:'bold'\">" + x + "</span>"
-        });
-      return newText;
+      // console.log('text = ', text);
 
-      // let newText = searchFor.map(searchForWord => {
-      //   // console.log('getHighlightedText', searchForWord, text.substring(0,100));
-      //   return this.formatLabel(text, searchForWord);
-      // });
+      let searchForAsString = searchFor.join('|');
+      const stringArray = newText.split(/([^A-Za-z]|$)/g); // keep the delimiter; we don't want to remove non-alphanumeric characters from the display; just from the match
+      let elements = stringArray.map((string, index) =>
+        new RegExp(searchForAsString, 'gi').test(string) ? <b key={ index } className='highlightbg'>{ string }</b> : string
+      )
+      return elements;
+      // let newText = text.replace(new RegExp(searchForAsString, 'gi'), function (x, i) {
+      //    return ( <div><span key=" + i + " style="background:'yellow', font-weight:'bold'" dangerouslySetInnerHTML={{__html: x }}></span></div> )
+      //   });
+      // return newText;
+      
+      /*
+      let newText = searchFor.map(searchForWord => {
+        console.log('getHighlightedText', searchForWord, text.substring(0,100));
+        return formatLabel(text, searchForWord);
+      });
+      */
+
     }
     return newText;
   }
@@ -111,8 +109,7 @@ export class Highlight extends Component {
     return this.props.highlights.map((highlight, highlightIndex) => (  
       <li key={highlight.id}>
         <a target='_blank' rel='noopener noreferrer' 
-          href={highlight.url} 
-          dangerouslySetInnerHTML={{__html: this.state.filteredSummaries[highlightIndex]}}>  
+          href={highlight.url}> { this.state.filteredSummaries[highlightIndex] }
         </a>
         <ul>
           { highlight.details && 
