@@ -83,10 +83,15 @@ h1, h2, h3, h4 {
 	white-space: nowrap;
 }
 
+#skillsContainer {
+	position: relative;
+}
 
 #skills {
 	/* margin-top: 2em; */
 	min-width: 300px;
+	position: fixed;
+	top: 0px;
 }
 
 
@@ -206,6 +211,7 @@ a {
 
 .highlightbg {
 	background: yellow;
+	font-weight: bold;
 }
 
 a.noline {
