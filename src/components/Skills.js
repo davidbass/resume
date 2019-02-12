@@ -51,7 +51,7 @@ export class Skills extends Component {
       this.setState({ searchFor: searchFor });
     }
 
-    console.log('this.state.searchFor', this.state.searchFor);
+    // console.log('this.state.searchFor', this.state.searchFor);
 
     // console.log("toggleHighlight " + text);
     // this.setState({ searchFor: text });

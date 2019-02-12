@@ -15,7 +15,7 @@ class App extends Component {
   }
  
   myCallback = (dataFromChild) => {
-    console.log('myCallback - dataFromChild', dataFromChild);
+    // console.log('myCallback - dataFromChild', dataFromChild);
     this.setState({ searchFor: dataFromChild });
   }
 

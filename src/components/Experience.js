@@ -34,7 +34,7 @@ export class Experience extends Component {
   }
 
   render() {
-    console.log('this.props.highlightThis', this.props.highlightThis);
+    // console.log('this.props.highlightThis', this.props.highlightThis);
     return this.props.experience.map((job, index) => (
       <div className="card" key={job.id}>
         <h3 className="title"> 
