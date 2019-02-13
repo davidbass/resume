@@ -444,14 +444,14 @@
 			"name": "MySQL",
 			"confidence": 40,
 			"usage": [
-				9,9,9,7,5,3,1,1,1
+				1,9,9,7,5,3,1,1,1
 			]
 		},
 		{
 			"name": "PostgreSQL",
 			"confidence": 40,
 			"usage": [
-				10,9,8,7,6,4,3,2,1
+				1,2,5,7,6,4,3,2,1
 			]
 		},
 		{
@@ -501,6 +501,20 @@
 			"confidence": 20,
 			"usage": [
 				0,0,0,0,0,1,0,0,2
+			]
+		},
+		{
+			"name": "Word2Vec",
+			"confidence": 0,
+			"usage": [
+				0,0,0,0,0,0,0,0,0
+			]
+		},
+		{
+			"name": "Neo4J",
+			"confidence": 0,
+			"usage": [
+				0,0,0,0,0,0,0,0,0
 			]
 		}
 	]

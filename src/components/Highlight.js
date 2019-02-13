@@ -7,46 +7,57 @@ export class Highlight extends Component {
     // this.getRandomColor = this.getRandomColor.bind(this);
     this.state = {
       searchFor: '',
-      unFilteredSummaries: [],
-      filteredSummaries: []
+      unFilteredHighlights: [],
+      filteredHighlights: [],
     }
   }
 
   componentDidMount() {
-    let filteredSummaries = this.props.highlights.map((highlight) => {
-      let newText = highlight.summary;
-      return newText;
-    })
+    // let filteredHighlights = this.props.highlights.map((highlight) => {
+    //   let summary = highlight.summary;
+    //   let url = highlight.url;
+    //   let details = highlight.details;
+    //   return { "summary": summary, "url": url, "details" : details };
+    // })
+
+    // console.log('didMount/filteredHighlights', filteredHighlights);
 
     this.setState({
-      unFilteredSummaries: filteredSummaries,
-      filteredSummaries: filteredSummaries
+      unFilteredHighlights: this.props.highlights,
+      filteredHighlights: this.props.highlights
     })
-
   }
 
   componentWillReceiveProps(prevProps, nextProps) {
-    // console.log('componentWillReceiveProps', 'this.props.highlightThis', this.props.highlightThis, 'prevProps.highlightThis', prevProps.highlightThis);
     if (prevProps.highlightThis) {
-      // console.log('DIFF / this.props.highlightThis.length', this.props.highlightThis.length, 'prevProps.highlightThis.length', prevProps.highlightThis.length);
-      let filteredSummaries = [];
-      let numUpdates = 0;
+      let filteredHighlights = [];
       if (prevProps.highlightThis.length > 0) {
-        let filteredSummaries = this.state.unFilteredSummaries.map((highlight, highlightIndex) => {
-          // console.log('running getHighlightedText');
-          let newText = this.getHighlightedText(highlight, prevProps.highlightThis);
-          if (newText !== this.state.unFilteredSummaries[highlightIndex]) {
-            // console.log('newText is new', 'this.props', this.props, 'prevProps', prevProps);    
+        let filteredHighlights = this.state.unFilteredHighlights.map((highlight, highlightIndex) => {
+          let summary = this.getHighlightedText(highlight.summary, prevProps.highlightThis);
+          let url = highlight.url;
+          let filteredDetails = highlight.details;
+          if (highlight.details && highlight.details.length > 0) {
+            let filteredDetails = highlight.details.map((detail, detailIndex) => {
+              // console.log('@55', detailIndex, detail);
+              if (detail && typeof detail !== "undefined" && detail.length > 0) {
+                let newDetail = this.getHighlightedText(detail, prevProps.highlightThis);
+                console.log('@44-newDetail', newDetail);
+                return newDetail;
+              }
+            })
           }
-          // console.log('newText', newText);
-          return newText;
+          console.log('@49-filteredDetails', filteredDetails);
+          return { "summary": summary, "url": url, "details": filteredDetails };
         })
+        console.log('@53', filteredHighlights);
 
-        this.setState({ filteredSummaries: filteredSummaries });
-        return filteredSummaries;
+        this.setState({ 
+          filteredHighlights: filteredHighlights, 
+        });
+        return filteredHighlights;
       } else {
         // there were no checked items, so let's reset it to the original / unfiltered values;
-        this.setState({ filteredSummaries: this.state.unFilteredSummaries });  
+        this.setState({ filteredHighlights: this.state.unFilteredHighlights });  
       }
     }
   }
@@ -57,7 +68,8 @@ export class Highlight extends Component {
 
   getHighlightedText(text, searchFor) {
     let newText = text;
-    if (searchFor.length > 0) {
+    if (searchFor.length > 0 && newText && newText.length > 0) {
+      // console.log('newText', newText);
       let searchForAsString = searchFor.join('|');
       const stringArray = newText.split(/([^A-Za-z]|$)/g); // keep the delimiter; we don't want to remove non-alphanumeric characters from the display; just from the match
       let elements = stringArray.map((string, index) =>
@@ -71,20 +83,19 @@ export class Highlight extends Component {
 
   render() {
     // console.log('highlight:js/render', this.props.highlightThis);
-    // console.log('render/this.state.filteredSummaries', this.state.filteredSummaries);
-    
-    return this.props.highlights.map((highlight, highlightIndex) => (  
-      <li key={highlight.id}>
+    console.log('render/this.state.filteredHighlights', this.state.filteredHighlights);
+
+    return this.state.filteredHighlights.map((highlight, highlightIndex) => (  
+      <li key={highlightIndex}>
         <a target='_blank' rel='noopener noreferrer' 
-          href={highlight.url}> { this.state.filteredSummaries[highlightIndex] }
+          href={highlight.url}> { highlight.summary }
         </a>
         <ul>
-          { highlight.details && 
-              highlight.details.map((detail, index) => (
-                <li key={ index }>
-                  <span dangerouslySetInnerHTML={{ __html: detail }} />
-                </li>
-              ))
+          { highlight.details && highlight.details.map((detail, detailIndex) => (
+            <li key={ detailIndex }>
+              <span dangerouslySetInnerHTML={{ __html: detail }} />
+            </li>
+            ))
           }
         </ul>
       </li>
