@@ -13,15 +13,6 @@ export class Highlight extends Component {
   }
 
   componentDidMount() {
-    // let filteredHighlights = this.props.highlights.map((highlight) => {
-    //   let summary = highlight.summary;
-    //   let url = highlight.url;
-    //   let details = highlight.details;
-    //   return { "summary": summary, "url": url, "details" : details };
-    // })
-
-    // console.log('didMount/filteredHighlights', filteredHighlights);
-
     this.setState({
       unFilteredHighlights: this.props.highlights,
       filteredHighlights: this.props.highlights
@@ -35,26 +26,32 @@ export class Highlight extends Component {
         let filteredHighlights = this.state.unFilteredHighlights.map((highlight, highlightIndex) => {
           let summary = this.getHighlightedText(highlight.summary, prevProps.highlightThis);
           let url = highlight.url;
-          let filteredDetails = highlight.details;
-          if (highlight.details && highlight.details.length > 0) {
-            let filteredDetails = highlight.details.map((detail, detailIndex) => {
-              // console.log('@55', detailIndex, detail);
-              if (detail && typeof detail !== "undefined" && detail.length > 0) {
-                let newDetail = this.getHighlightedText(detail, prevProps.highlightThis);
-                console.log('@44-newDetail', newDetail);
-                return newDetail;
+          let details = highlight.details;
+          let newDetails = [];
+          if (details && details.length > 0) {
+            let newDetails = highlight.details.map(detail => {
+              // console.log('detail@33', 'look for "' +  prevProps.highlightThis + '" in ' + detail);
+              let newDetail = this.getHighlightedText(detail, prevProps.highlightThis);
+              let newDetailAsString = newDetail.join('');
+              if (newDetailAsString !== detail) {
+                // console.log('found "' + prevProps.highlightThis + '" in "' + detail + '"');
               }
+              return newDetail;
             })
+            // console.log('newDetails@42', newDetails);
+            return { "summary": summary, "url": url, "details": newDetails };
+            console.log('@43', summary, url, newDetails );
           }
-          console.log('@49-filteredDetails', filteredDetails);
-          return { "summary": summary, "url": url, "details": filteredDetails };
+          return { "summary": summary, "url": url, "details": newDetails };
         })
-        console.log('@53', filteredHighlights);
 
         this.setState({ 
           filteredHighlights: filteredHighlights, 
         });
-        return filteredHighlights;
+
+        console.log('@46/filteredHighlights', filteredHighlights);
+
+        // return newFilteredHighlights;
       } else {
         // there were no checked items, so let's reset it to the original / unfiltered values;
         this.setState({ filteredHighlights: this.state.unFilteredHighlights });  
@@ -69,21 +66,23 @@ export class Highlight extends Component {
   getHighlightedText(text, searchFor) {
     let newText = text;
     if (searchFor.length > 0 && newText && newText.length > 0) {
-      // console.log('newText', newText);
+      // console.log('text @ 72', newText);
       let searchForAsString = searchFor.join('|');
       const stringArray = newText.split(/([^A-Za-z]|$)/g); // keep the delimiter; we don't want to remove non-alphanumeric characters from the display; just from the match
       let elements = stringArray.map((string, index) =>
         new RegExp("\\b" + searchForAsString + "\\b", 'gi').test(string) ? <b key={ index } className='highlightbg'>{ string }</b> : string
       )
+      // console.log('@75', elements);
       return elements;
     }
+    // console.log('@77', newText);
     return newText;
   }
    
 
   render() {
     // console.log('highlight:js/render', this.props.highlightThis);
-    console.log('render/this.state.filteredHighlights', this.state.filteredHighlights);
+    // console.log('render/this.state.filteredHighlights', this.state.filteredHighlights);
 
     return this.state.filteredHighlights.map((highlight, highlightIndex) => (  
       <li key={highlightIndex}>
@@ -92,8 +91,7 @@ export class Highlight extends Component {
         </a>
         <ul>
           { highlight.details && highlight.details.map((detail, detailIndex) => (
-            <li key={ detailIndex }>
-              <span dangerouslySetInnerHTML={{ __html: detail }} />
+            <li key={ detailIndex }> { detail }
             </li>
             ))
           }
