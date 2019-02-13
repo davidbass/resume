@@ -49,7 +49,7 @@ export class Highlight extends Component {
           filteredHighlights: filteredHighlights, 
         });
 
-        console.log('@46/filteredHighlights', filteredHighlights);
+        // console.log('@46/filteredHighlights', filteredHighlights);
 
         // return newFilteredHighlights;
       } else {
@@ -68,7 +68,7 @@ export class Highlight extends Component {
     if (searchFor.length > 0 && newText && newText.length > 0) {
       // console.log('text @ 72', newText);
       let searchForAsString = searchFor.join('|');
-      const stringArray = newText.split(/([^A-Za-z]|$)/g); // keep the delimiter; we don't want to remove non-alphanumeric characters from the display; just from the match
+      const stringArray = newText.split(/([^A-Za-z0-9]|$)/g); // keep the delimiter; we don't want to remove non-alphanumeric characters from the display; just from the match
       let elements = stringArray.map((string, index) =>
         new RegExp("\\b" + searchForAsString + "\\b", 'gi').test(string) ? <b key={ index } className='highlightbg'>{ string }</b> : string
       )
@@ -91,8 +91,7 @@ export class Highlight extends Component {
         </a>
         <ul>
           { highlight.details && highlight.details.map((detail, detailIndex) => (
-            <li key={ detailIndex }> { detail }
-            </li>
+            <li key={ detailIndex }> { detail } </li>
             ))
           }
         </ul>

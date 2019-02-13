@@ -41,7 +41,7 @@
 					"url": null,
 					"summary": "Developing and designing an open-source, cross-platform desktop application known as the Islandora Batch Uploader (IBU)",
 					"details": [
-						"https://bitbucket.org/wwulibraries/islandora-batch-uploader/",
+						"<a title='link to repository' target='bbibu' href='https://bitbucket.org/wwulibraries/islandora-batch-uploader/'>Bitbucket repository</a>",
 						"Designed to make it easy to describe and upload batches of images and video to Western's digital asset management system (MABEL)",
 						"Created with Electron, Node, Vue, ES6 and many other Node modules",
 						"Uses Clarifai and Microsoft Cognitive Services machine learning APIs for automated image / video analysis",
@@ -50,7 +50,7 @@
 						"Using child processes to for time-consuming tasks such as video processing, pHash calculations and Ajax calls",
 						"Uses pHash to create a visual fingerprint/signature of each image, and then compares their differences to cluster similar images and to find scene changes for video",
 						"Harvests EXIF metadata when available, and uses date created to find events that occurred on the same day in the university calendar to suggest photo titles",
-						"Presented IBU at the 2018 Islandora Camp San Diego - https://islandora.ca/content/looking-back-islandora-campca",
+						"Presented IBU at the 2018 Islandora Camp San Diego - <a target='sdsucamp' title='link to schedule' href='https://islandora.ca/camps/ca2018/schedule'>schedule</a> | <a target='slides' title='link to slides' href='https://docs.google.com/presentation/d/1-5uXw8LFsyWg6B-mRf5oibuLMu-xk6tUkq_LWfwPmdI/edit?usp=sharing'>presentation slides</a> | <a target='sdsufeedback' title='link to review of presentation' href='https://islandora.ca/content/looking-back-islandora-campca'>feedback</a>",
 						"Planning to experiment with LSTM (Long short-term memory) to automatically generate descriptions based on keywords and other metadata"
 					]  	
 				},
@@ -109,9 +109,9 @@
 					"url": null,
 					"summary": "Designed and developed interface enhancements for Primo (aka 'OneSearch'), our library catalog / search engine",
 					"details": [
-						"https://bitbucket.org/wwulibraries/primo-by-exlibris-customizations",
+						"<a target='onesearch' title='link to onesearch' href='https://onesearch.library.wwu.edu'>onesearch.library.wwu.edu</a> - <a href='https://bitbucket.org/wwulibraries/primo-by-exlibris-customizations'>code</a>",
 						"including API integration with Alma and other systems and a custom permalink generator.",
-						"Screenshots: (before: https://d.pr/i/kMpe3E) - (after: https://d.pr/i/RssKjM) "
+						"Screenshots: <a title='link to before screenshot' target='before' href='https://d.pr/i/kMpe3E'>before</a>  - <a title='link to after screenshot' target='after' href='https://d.pr/i/RssKjM'>after</a> "
 					]
 				},
 				{ 
