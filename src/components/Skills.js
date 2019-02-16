@@ -59,6 +59,28 @@ export class Skills extends Component {
   }
 
   render() {
+    function showGraphOrText(skill) {
+      let sum = skill.usage.reduce((acc, val) => {
+        return acc + val;
+      });
+      // console.log('sum = ' + sum, skill);
+      if (sum === 1 && skill.usage[skill.usage.length - 1] === 1) {
+        return (
+          <span className='tinyText'>Learning</span>
+        )
+      } else if (sum > 0) {
+        return (
+          <Sparklines data={skill.usage} svgHeight={15} svgWidth={100} margin={5}>
+            <SparklinesCurve color="#596979" />
+          </Sparklines>  
+        )
+      } else {
+        return (
+          <span className='tinyText'>Up Next</span>
+        )
+      }
+    }
+
     return this.props.skills.map((skill, index) => (
       <div className='row title' key={ index }>
         <div className="column nowrap">
@@ -70,11 +92,11 @@ export class Skills extends Component {
         <div className="column">
           <div className="nowrap"><img alt="numerator" border="1" src={ numeratorImg } width={ skill.confidence/2 } height="7" /><img alt="denominator" border="1" src={ denominatorImg } width={ getRemainder(skill.confidence) } height="7" /></div>
         </div>
-        <div className="column">
-          <Sparklines data={skill.usage} svgHeight={15} svgWidth={100} margin={5}>
-            <SparklinesCurve color="#596979" />
-          </Sparklines>
-        </div>
+        <div className="column center">
+          { 
+            showGraphOrText(skill) 
+          }
+       </div>
       </div>
     ));    
 

@@ -43,15 +43,14 @@
 					"details": [
 						"https://bitbucket.org/wwulibraries/islandora-batch-uploader/",
 						"Designed to make it easy to describe and upload batches of images and video to Western's digital asset management system (MABEL)",
-						"Created with Electron, Node, Vue, ES6 and many other Node modules",
+						"Created with Electron, Node, Vue, ES6/ES7 and many other Node modules",
 						"Uses Clarifai and Microsoft Cognitive Services machine learning APIs for automated image / video analysis",
 						"Generates SSH private / public keys for authentication",
 						"Uses Sharp and ffmpeg to process images and video",
 						"Using child processes to for time-consuming tasks such as video processing, pHash calculations and Ajax calls",
 						"Uses pHash to create a visual fingerprint/signature of each image, and then compares their differences to cluster similar images and to find scene changes for video",
 						"Harvests EXIF metadata when available, and uses date created to find events that occurred on the same day in the university calendar to suggest photo titles",
-						"Presented IBU at the 2018 Islandora Camp San Diego - https://islandora.ca/content/looking-back-islandora-campca",
-						"Planning to experiment with LSTM (Long short-term memory) to automatically generate descriptions based on keywords and other metadata"
+						"Presented IBU at the 2018 Islandora Camp San Diego - https://islandora.ca/content/looking-back-islandora-campca"
 					]  	
 				},
 				{ 
@@ -315,8 +314,8 @@
 	],
 	"skills": [
 		{
-			"name": "ES6",
-			"confidence": 60,
+			"name": "ES6 / ES7",
+			"confidence": 65,
 			"usage": [
 				0,0,0,0,0,0,0,7,8
 			]
@@ -375,13 +374,6 @@
 			"confidence": 75,
 			"usage": [
 				0,0,0,0,0,0,0,7,10
-			]
-		},
-		{
-			"name": "Tensorflow.js",
-			"confidence": 15,
-			"usage": [
-				0,0,0,0,0,0,0,0,5
 			]
 		},
 		{
@@ -501,6 +493,34 @@
 			"confidence": 20,
 			"usage": [
 				0,0,0,0,0,1,0,0,2
+			]
+		},
+		{
+			"name": "Tensorflow.js",
+			"confidence": 15,
+			"usage": [
+				0,0,0,0,0,0,0,0,1
+			]
+		},
+		{
+			"name": "GraphQL",
+			"confidence": 0,
+			"usage": [
+				0,0,0,0,0,0,0,0,1
+			]
+		},
+		{
+			"name": "Meteor JS",
+			"confidence": 0,
+			"usage": [
+				0,0,0,0,0,0,0,0,1
+			]
+		},
+		{
+			"name": "Nuxt.js",
+			"confidence": 0,
+			"usage": [
+				0,0,0,0,0,0,0,0,1
 			]
 		},
 		{

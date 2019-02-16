@@ -61,6 +61,12 @@ h1, h2, h3, h4 {
 	margin-left: auto;
 }
 
+.center {
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+
 .card {
     background: white;
     /* border: 1px solid #999; */
@@ -265,6 +271,11 @@ fieldset {
     color: #aaa;
 }
 
+.tinyText {
+	font-size: 50%;
+	letter-spacing: 8px;
+	margin-right: 1em;
+}
 
 /*** custom checkboxes ***/
 
