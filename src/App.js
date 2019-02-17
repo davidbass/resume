@@ -58,6 +58,9 @@ class App extends Component {
                   <div>{ resumeData.email }</div>
                   <div>{ resumeData.linkedIn }</div>
                   <div>{ resumeData.website }</div>
+                  <div>{ resumeData.githubPersonal }</div>
+                  <div>{ resumeData.githubWWU }</div>
+                  <div>{ resumeData.bitbucketWWU }</div>
                 </div>
               </div>
             </div>

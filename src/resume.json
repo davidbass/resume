@@ -1,8 +1,11 @@
 {
 	"name" : "David Bass",
-	"website" : "davidbass.com",
+	"website" : "https://davidbass.com",
 	"email" : "david at david bass dot com",
 	"linkedIn" : "http://www.linkedin.com/in/davidbass",
+	"githubPersonal": "https://github.com/davidbass",
+	"githubWWU": "https://github.com/davidbasswwu",
+	"bitbucketWWU": "https://bitbucket.org/davidbasswwu",
 	"title" : "Web Developer resume - Bellingham, Washington",
 	"overview" : "Web / software developer based in Bellingham, Washington with a Master's degree in Information Systems.  Interests include AI, computer vision, automation, learning, design and problem solving.",
 	"experience" : [
