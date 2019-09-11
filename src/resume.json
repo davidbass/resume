@@ -56,16 +56,6 @@
 						"Presented IBU at the 2018 Islandora Camp San Diego - https://islandora.ca/content/looking-back-islandora-campca"
 					]  	
 				},
-				{ 
-					"id": 3,
-					"url": null,
-					"summary": "Planning to setup an automated testing environment in the near future; currently learning and experimenting with Nightmare JS and Jest  "
-				},
-				{ 
-					"id": "okr",
-					"url": null,
-					"summary": "Working to introduce Objectives and Key Results (OKRs) to the organization"
-				},
 				{
 					"id": "primoapicache",
 					"url": null,
@@ -318,7 +308,7 @@
 	"skills": [
 		{
 			"name": "ES6 / ES7",
-			"confidence": 65,
+			"confidence": 75,
 			"usage": [
 				0,0,0,0,0,0,0,7,8
 			]
@@ -496,48 +486,6 @@
 			"confidence": 20,
 			"usage": [
 				0,0,0,0,0,1,0,0,2
-			]
-		},
-		{
-			"name": "Tensorflow.js",
-			"confidence": 15,
-			"usage": [
-				0,0,0,0,0,0,0,0,1
-			]
-		},
-		{
-			"name": "GraphQL",
-			"confidence": 0,
-			"usage": [
-				0,0,0,0,0,0,0,0,1
-			]
-		},
-		{
-			"name": "Meteor JS",
-			"confidence": 0,
-			"usage": [
-				0,0,0,0,0,0,0,0,1
-			]
-		},
-		{
-			"name": "Nuxt.js",
-			"confidence": 0,
-			"usage": [
-				0,0,0,0,0,0,0,0,1
-			]
-		},
-		{
-			"name": "Word2Vec",
-			"confidence": 0,
-			"usage": [
-				0,0,0,0,0,0,0,0,0
-			]
-		},
-		{
-			"name": "Neo4J",
-			"confidence": 0,
-			"usage": [
-				0,0,0,0,0,0,0,0,0
 			]
 		}
 	]

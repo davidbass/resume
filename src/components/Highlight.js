@@ -15,7 +15,8 @@ export class Highlight extends Component {
   componentDidMount() {
     this.setState({
       unFilteredHighlights: this.props.highlights,
-      filteredHighlights: this.props.highlights
+      filteredHighlights: this.props.highlights,
+      experienceDetailLevel: this.props.experienceDetailLevel,
     })
   }
 
@@ -30,11 +31,11 @@ export class Highlight extends Component {
           let newDetails = [];
           if (details && details.length > 0) {
             let newDetails = highlight.details.map(detail => {
-              // console.log('detail@33', 'look for "' +  prevProps.highlightThis + '" in ' + detail);
+              console.log('detail@33', 'look for "' +  prevProps.highlightThis + '" in ' + detail);
               let newDetail = this.getHighlightedText(detail, prevProps.highlightThis);
               let newDetailAsString = newDetail.join('');
               if (newDetailAsString !== detail) {
-                // console.log('found "' + prevProps.highlightThis + '" in "' + detail + '"');
+                console.log('found "' + prevProps.highlightThis + '" in "' + detail + '"');
               }
               return newDetail;
             })
@@ -49,7 +50,7 @@ export class Highlight extends Component {
           filteredHighlights: filteredHighlights, 
         });
 
-        // console.log('@46/filteredHighlights', filteredHighlights);
+        console.log('@46/filteredHighlights', filteredHighlights);
 
         // return newFilteredHighlights;
       } else {
@@ -60,7 +61,7 @@ export class Highlight extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    // console.log('componentDidUpdate', this.props, prevProps);
+    console.log('componentDidUpdate', this.props, prevProps);
   }
 
   getHighlightedText(text, searchFor) {
@@ -81,15 +82,18 @@ export class Highlight extends Component {
    
 
   render() {
-    // console.log('highlight:js/render', this.props.highlightThis);
-    // console.log('render/this.state.filteredHighlights', this.state.filteredHighlights);
+    console.log('highlight:js/render', this.props.highlightThis);
+    console.log('this.props.experienceDetailLevel', this.props.experienceDetailLevel);
+    console.log('this.state.experienceDetailLevel', this.state.experienceDetailLevel);
+    console.log('render/this.state.filteredHighlights', this.state.filteredHighlights);
 
     return this.state.filteredHighlights.map((highlight, highlightIndex) => (  
       <li key={highlightIndex}>
         <a target='_blank' rel='noopener noreferrer' 
           href={highlight.url}> { highlight.summary }
         </a>
-        <ul>
+        <ul className={'experienceDetails' + this.props.experienceDetailLevel}>
+
           { highlight.details && highlight.details.map((detail, detailIndex) => (
             <li key={ detailIndex }> { detail } </li>
             ))

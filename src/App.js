@@ -10,17 +10,25 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      searchFor: []
+      searchFor: [],
+      experienceDetailLevel: 1,
     }
+  }
+
+  handleChange(e){
+    let obj = {};
+    obj[e.target.name] = e.target.value;
+    console.log('handleChange', e.target.name, e.target.value)
+    this.setState(obj);
   }
  
   myCallback = (dataFromChild) => {
-    // console.log('myCallback - dataFromChild', dataFromChild);
+    console.log('myCallback - dataFromChild', dataFromChild);
     this.setState({ searchFor: dataFromChild });
   }
 
   render() {
-    // console.log(resumeData);
+    console.log('App.js / render / resumeData', resumeData);
     return (
       <div className="App">
         <div className="row">
@@ -31,8 +39,20 @@ class App extends Component {
         </div>
         <div className="row">
           <div className="double-column">
-            <h2 className="section">Experience</h2>
-            <Experience experience={ resumeData.experience } highlightThis={ this.state.searchFor } />
+            <div className="row">
+              <div className="column">
+                <h2 className="section">Experience</h2>
+              </div>
+              <div className="column">
+                <div id="controlPanelContainer">
+                  <div id="controlPanel">
+                    <label htmlFor="experienceDetailLevel">Level of Detail:</label>
+                    <input type="range" min="0" max="2" value={this.state.experienceDetailLevel} onChange={(e) => {this.handleChange(e)}} className="slider" name="experienceDetailLevel" id="experienceDetailLevel" />
+                  </div>
+                </div>
+              </div>
+            <Experience experience={ resumeData.experience } experienceDetailLevel= {this.state.experienceDetailLevel } highlightThis={ this.state.searchFor } />
+            </div>
           </div>
           <div className="column" id="skillsContainer">
             <div id="skills">
