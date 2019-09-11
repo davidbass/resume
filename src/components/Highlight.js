@@ -31,7 +31,7 @@ export class Highlight extends Component {
           let newDetails = [];
           if (details && details.length > 0) {
             let newDetails = highlight.details.map(detail => {
-              console.log('detail@33', 'look for "' +  prevProps.highlightThis + '" in ' + detail);
+              console.log('Highlight.js:34', 'look for "' +  prevProps.highlightThis + '" in ' + detail);
               let newDetail = this.getHighlightedText(detail, prevProps.highlightThis);
               let newDetailAsString = newDetail.join('');
               if (newDetailAsString !== detail) {
@@ -61,30 +61,29 @@ export class Highlight extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    console.log('componentDidUpdate', this.props, prevProps);
+    // console.log('Highlight.js/componentDidUpdate', this.props, prevProps);
   }
 
   getHighlightedText(text, searchFor) {
     let newText = text;
     if (searchFor.length > 0 && newText && newText.length > 0) {
-      // console.log('text @ 72', newText);
+      console.log('text @ 72', newText);
       let searchForAsString = searchFor.join('|');
       const stringArray = newText.split(/([^A-Za-z0-9]|$)/g); // keep the delimiter; we don't want to remove non-alphanumeric characters from the display; just from the match
       let elements = stringArray.map((string, index) =>
         new RegExp("\\b" + searchForAsString + "\\b", 'gi').test(string) ? <b key={ index } className='highlightbg'>{ string }</b> : string
       )
-      // console.log('@75', elements);
+      console.log('@75', elements);
       return elements;
     }
-    // console.log('@77', newText);
+    console.log('@77', newText);
     return newText;
   }
    
 
   render() {
     console.log('highlight:js/render', this.props.highlightThis);
-    console.log('this.props.experienceDetailLevel', this.props.experienceDetailLevel);
-    console.log('this.state.experienceDetailLevel', this.state.experienceDetailLevel);
+    // console.log('this.state.experienceDetailLevel', this.state.experienceDetailLevel);
     console.log('render/this.state.filteredHighlights', this.state.filteredHighlights);
 
     return this.state.filteredHighlights.map((highlight, highlightIndex) => (  

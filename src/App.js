@@ -28,7 +28,7 @@ class App extends Component {
   }
 
   render() {
-    console.log('App.js / render / resumeData', resumeData);
+    // console.log('App.js / render / resumeData', resumeData);
     return (
       <div className="App">
         <div className="row">

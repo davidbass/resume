@@ -46,7 +46,7 @@
 					"details": [
 						"https://bitbucket.org/wwulibraries/islandora-batch-uploader/",
 						"Designed to make it easy to describe and upload batches of images and video to Western's digital asset management system (MABEL)",
-						"Created with Electron, Node, Vue, ES6/ES7 and many other Node modules",
+						"Created with Electron, Node, Vue, JavaScript (ES6 / ES7) and many other Node modules",
 						"Uses Clarifai and Microsoft Cognitive Services machine learning APIs for automated image / video analysis",
 						"Generates SSH private / public keys for authentication",
 						"Uses Sharp and ffmpeg to process images and video",
@@ -306,13 +306,6 @@
 		}
 	],
 	"skills": [
-		{
-			"name": "ES6 / ES7",
-			"confidence": 75,
-			"usage": [
-				0,0,0,0,0,0,0,7,8
-			]
-		},
 		{
 			"name": "JavaScript",
 			"confidence": 90,
