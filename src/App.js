@@ -36,23 +36,19 @@ class App extends Component {
             <h1 className="section">{ resumeData.name }</h1>
             <div>{ resumeData.overview }</div>
           </div>
+          <div className="column">
+            <div id="controlPanelContainer">
+              <div id="controlPanel">
+                <label htmlFor="experienceDetailLevel">Level of Detail:</label>
+                <input type="range" min="0" max="1" value={this.state.experienceDetailLevel} onChange={(e) => {this.handleChange(e)}} className="slider" name="experienceDetailLevel" id="experienceDetailLevel" />
+              </div>
+            </div>
+          </div>
         </div>
         <div className="row">
           <div className="double-column">
-            <div className="row">
-              <div className="column">
-                <h2 className="section">Experience</h2>
-              </div>
-              <div className="column">
-                <div id="controlPanelContainer">
-                  <div id="controlPanel">
-                    <label htmlFor="experienceDetailLevel">Level of Detail:</label>
-                    <input type="range" min="0" max="2" value={this.state.experienceDetailLevel} onChange={(e) => {this.handleChange(e)}} className="slider" name="experienceDetailLevel" id="experienceDetailLevel" />
-                  </div>
-                </div>
-              </div>
+            <h2 className="section">Experience</h2>
             <Experience experience={ resumeData.experience } experienceDetailLevel= {this.state.experienceDetailLevel } highlightThis={ this.state.searchFor } />
-            </div>
           </div>
           <div className="column" id="skillsContainer">
             <div id="skills">

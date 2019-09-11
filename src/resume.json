@@ -321,6 +321,20 @@
 			]
 		},		
 		{
+			"name": "TensorFlow.js",
+			"confidence": 20,
+			"usage": [
+				0,0,0,0,0,0,0,0,1
+			]
+		},
+		{
+			"name": "Svelte",
+			"confidence": 10,
+			"usage": [
+				0,0,0,0,0,0,0,0,1
+			]
+		},
+		{
 			"name": "Git",
 			"confidence": 50,
 			"usage": [
@@ -482,10 +496,17 @@
 			]
 		},
 		{
+			"name": "Azure",
+			"confidence": 20,
+			"usage": [
+				0,0,0,0,0,0,0,1,2
+			]
+		},
+		{
 			"name": "Nginx",
 			"confidence": 20,
 			"usage": [
-				0,0,0,0,0,1,0,0,2
+				0,0,0,0,0,1,0,2,1
 			]
 		}
 	]
