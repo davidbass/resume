@@ -25,6 +25,11 @@
 					"summary": "Full title: Senior Developer for Digital Initiatives, Western Libraries"
 				},
 				{
+					"id": "teamAward",
+					"url": "https://president.wwu.edu/team-recognition-award",
+					"summary": "2019 Team Recognition Award (MABEL)"
+				},
+				{
 					"id": 0,
 					"url": "https://president.wwu.edu/professional-staff-award-excellence",
 					"summary": "2018 Professional Staff Award for Excellence"
@@ -44,7 +49,7 @@
 					"url": null,
 					"summary": "Developing and designing an open-source, cross-platform desktop application known as the Islandora Batch Uploader (IBU)",
 					"details": [
-						"https://bitbucket.org/wwulibraries/islandora-batch-uploader/",
+						"https://mabel.wwu.edu/ibu/",
 						"Designed to make it easy to describe and upload batches of images and video to Western's digital asset management system (MABEL)",
 						"Created with Electron, Node, Vue, JavaScript (ES6 / ES7) and many other Node modules",
 						"Uses Clarifai and Microsoft Cognitive Services machine learning APIs for automated image / video analysis",
@@ -53,7 +58,7 @@
 						"Using child processes to for time-consuming tasks such as video processing, pHash calculations and Ajax calls",
 						"Uses pHash to create a visual fingerprint/signature of each image, and then compares their differences to cluster similar images and to find scene changes for video",
 						"Harvests EXIF metadata when available, and uses date created to find events that occurred on the same day in the university calendar to suggest photo titles",
-						"Presented IBU at the 2018 Islandora Camp San Diego - https://islandora.ca/content/looking-back-islandora-campca"
+						"Presented IBU at the 2019 IslandoraCon in Vancouver, BC, and at the 2018 Islandora Camp in San Diego - https://islandora.ca/content/looking-back-islandora-campca"
 					]  	
 				},
 				{
@@ -119,12 +124,12 @@
 				{ 
 					"id": 13,
 					"url": null,
-					"summary": "Member of the OneSearch Management Team (OMT), the Alma Management Team (AMT) and the MABEL Management Team (Islandora)"
+					"summary": "Former member of the Accessiblity Team, the OneSearch Management Team (OMT), the Alma Management Team (AMT)"
 				},
 				{ 
 					"id": 14,
 					"url": null,
-					"summary": "Former member of the Accessiblity Team"
+					"summary": "Member of the MABEL Management Team (Islandora)"
 				},
 				{ 
 					"id": 15,
