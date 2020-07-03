@@ -40,8 +40,8 @@ export class Highlight extends Component {
               return newDetail;
             })
             // console.log('newDetails@42', newDetails);
-            return { "summary": summary, "url": url, "details": newDetails };
             console.log('@43', summary, url, newDetails );
+            return { "summary": summary, "url": url, "details": newDetails };
           }
           return { "summary": summary, "url": url, "details": newDetails };
         })
