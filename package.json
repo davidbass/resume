@@ -1,9 +1,12 @@
 {
   "name": "resume",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": true,
   "homepage": "https://davidbass.com/",
   "dependencies": {
+    "@babel/helper-builder-react-jsx-experimental": "^7.12.11",
+    "@babel/helper-define-map": "^7.13.12",
+    "@babel/helper-regex": "^7.10.5",
     "@fortawesome/fontawesome": "^1.1.8",
     "@fortawesome/fontawesome-svg-core": "^1.2.29",
     "@fortawesome/free-solid-svg-icons": "^5.13.1",
